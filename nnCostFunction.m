@@ -87,39 +87,37 @@ d_3 = a_3 - yy;
 d_2 = (Theta2(:, 2:end))' * d_3 .* sigmoidGradient(z_2);
 
 printf("a_1\n");
-size(a_1)
+% size(a_1)
 
 printf("z_2\n");
-size(z_2)
+% size(z_2)
 
 printf("a_2\n");
-size(a_2)
+% size(a_2)
 
 printf("z_3\n");
-size(z_3)
+% size(z_3)
 
 printf("d_3\n");
-size(d_3)
+% size(d_3)
 
 D2 = d_3(:, 2:end) * a_2(:, 2:end)';
 D1 = d_2(:, 2:end) * a_1(:, 2:end)';
 
 printf("Theta1 \n");
-size(Theta1)
-size(D1)
+% size(Theta1)
+% size(D1)
 
 printf("Theta2 \n");
-size(Theta2)
-size(D2)
+% size(Theta2)
+% size(D2)
 
-Theta1_grad = D1 / m;
-Theta2_grad = D2 / m;
+Theta1_grad = D1 ./ m;
+Theta2_grad = D2 ./ m;
 
 
 % =========================================================================
 
 % Unroll gradients
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
-
-
 end
